@@ -13,9 +13,9 @@ It is strongly recommended to specify your own custom credentials. You can set t
 podman run -d -e SOCKS_USERNAME=custom_username -e SOCKS_PASSWORD=custom_password --name socks5 -p 60000:1080 --restart unless-stopped --memory=128M --cpus=0.25 docker.io/dv0vd/socks5
 ```
 
-Inside the container, you can view some basic logs (connect/disconnect) with the following command:
+Logs are available in the file `/var/log/danted.conf`. In order to access it you should run the command inside the container:
 ```
-podman logs -f socks5
+tail -f -n +1 /var/log/danted.log
 ```
 
 If you encounter IPv6 errors, you will need to create a custom network with IPv6 support:
